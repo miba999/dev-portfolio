@@ -1,0 +1,109 @@
+/* Edgy/fun theme — seam-safe */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #0a0f24 0%, #111b33 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* avoids gradient banding seams */
+  color: #f0f4ff;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header/Footer: remove hard borders; use subtle inset shadow to avoid visible lines */
+header,
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-clip: padding-box;
+  box-shadow:
+    inset 0 -1px rgba(255, 255, 255, 0.08); /* header bottom divider */
+}
+
+footer {
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08);  /* footer top divider */
+  font-size: 0.9rem;
+  color: #9fb4ff;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  color: #5ee7df;
+  background: linear-gradient(90deg, #5ee7df, #b490ca);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Project cards */
+.project {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Links */
+a {
+  color: #9be7ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px #5ee7df;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.6rem; }
+  .project { padding: 1.1rem; }
+}
